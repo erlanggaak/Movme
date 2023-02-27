@@ -1,0 +1,29 @@
+import 'package:flutter/material.dart';
+import 'package:path_provider/path_provider.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:path/path.dart';
+import 'package:flutter/services.dart';
+import 'dart:io';
+
+import 'package:movme/core/clients/api.dart';
+import 'package:movme/core/clients/constant.dart';
+import 'package:movme/core/utils/cast.dart';
+import 'package:movme/core/utils/user_preference.dart';
+import 'package:movme/core/sevices/movies_enum.dart';
+import 'package:movme/core/widgets/appbar/main_appbar.dart';
+import 'package:movme/core/widgets/appbar/profile_appbar.dart';
+import 'package:movme/core/widgets/appbar/edit_profile_appbar.dart';
+import 'package:movme/core/widgets/toprated_section.dart';
+import 'package:movme/core/widgets/trending_section.dart';
+import 'package:movme/core/widgets/upcoming_section.dart';
+import 'package:movme/core/widgets/profile_icon.dart';
+import 'package:movme/core/widgets/textfield.dart';
+import 'package:movme/models/movies_model.dart';
+import 'package:movme/models/cast_model.dart';
+import 'package:movme/models/user_model.dart';
+
+part 'main_page.dart';
+part 'movie_detail.dart';
+part 'favorite_page.dart';
+part 'profile_page.dart';
+part 'edit_profile_page.dart';
