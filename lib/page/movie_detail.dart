@@ -17,6 +17,7 @@ class MovieDetailPage extends StatefulWidget {
 class _MovieDetailPage extends State<MovieDetailPage> {
   @override
   Widget build(BuildContext context) {
+    final favoriteList = MoviePreference.getFavorite();
     return SafeArea(
       child: Scaffold(
         body: SingleChildScrollView(
@@ -41,6 +42,25 @@ class _MovieDetailPage extends State<MovieDetailPage> {
                       iconSize: 25,
                       icon: const Icon(Icons.close)
                     )
+                  ),
+                  Positioned(
+                      top: 5,
+                      right: 5,
+                      child: IconButton(
+                        onPressed: () {
+                          if (!favoriteList.listFavMovie.contains(widget.movie.id.toString())) {
+                            favoriteList.add(widget.movie.id.toString());
+                          } else {
+                            favoriteList.remove(widget.movie.id.toString());
+                          }
+                          MoviePreference.setFavorite(favoriteList);
+                          setState(() {});
+                        },
+                        iconSize: 25,
+                        color: favoriteList.listFavMovie.contains(widget.movie.id.toString())
+                          ? Colors.pink : Colors.white,
+                        icon: Icon(Icons.favorite)
+                      )
                   ),
                 ],
               ),

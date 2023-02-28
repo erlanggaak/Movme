@@ -5,6 +5,7 @@ class User {
   final int angkatan;
   final String email;
   final String instagram;
+  final String hobi;
   final String about;
 
   const User({
@@ -14,6 +15,7 @@ class User {
     required this.angkatan,
     required this.email,
     required this.instagram,
+    required this.hobi,
     required this.about,
   });
 
@@ -23,8 +25,9 @@ class User {
     String? jurusan,
     int? angkatan,
     String? email,
-    String? about,
     String? instagram,
+    String? hobi,
+    String? about,
   }) =>
       User(
         imagePath: imagePath ?? this.imagePath,
@@ -32,8 +35,9 @@ class User {
         jurusan: jurusan ?? this.jurusan,
         angkatan: angkatan ?? this.angkatan,
         email: email ?? this.email,
-        about: about ?? this.about,
         instagram: instagram ?? this.instagram,
+        hobi: hobi ?? this.hobi,
+        about: about ?? this.about,
       );
 
   static User fromJson(Map<String, dynamic> json) => User(
@@ -42,8 +46,9 @@ class User {
     jurusan: json['jurusan'],
     angkatan: json['angkatan'],
     email: json['email'],
-    about: json['about'],
     instagram: json['instagram'],
+    hobi: json['hobi'],
+    about: json['about'],
   );
 
   Map<String, dynamic> toJson() => {
@@ -52,7 +57,8 @@ class User {
     'jurusan': jurusan,
     'angkatan': angkatan,
     'email': email,
-    'about': about,
     'instagram': instagram,
+    'hobi': hobi,
+    'about': about,
   };
 }

@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:movme/core/utils/movie_preference.dart';
 import 'package:movme/page/_page.dart';
 import 'package:movme/core/utils/user_preference.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await UserPreferences.init();
+  await MoviePreference.init();
   runApp(const MyApp());
 }
 

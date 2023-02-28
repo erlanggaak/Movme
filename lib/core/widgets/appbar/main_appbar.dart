@@ -30,6 +30,7 @@ class _MainPageAppBarState extends State<MainPageAppBar>{
               await Navigator.of(context).push(
                 MaterialPageRoute(builder: (context) => ProfilePage()),
               );
+              setState(() {});
             },
             child: Padding(
               padding: const EdgeInsets.only(left: 6.0),
@@ -43,7 +44,7 @@ class _MainPageAppBarState extends State<MainPageAppBar>{
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       image: DecorationImage(
-                        fit: BoxFit.fill,
+                        fit: BoxFit.cover,
                         image: user.imagePath == '' ? Image.asset(
                           'lib/assets/static/images/profile_placeholder.png',
                           fit: BoxFit.cover,).image
@@ -59,6 +60,7 @@ class _MainPageAppBarState extends State<MainPageAppBar>{
                           user.name,
                           style: TextStyle(
                             fontSize: 16,
+                            fontWeight: FontWeight.bold,
                           ),
                         ),
                         Row(
@@ -69,12 +71,14 @@ class _MainPageAppBarState extends State<MainPageAppBar>{
                               '${user.jurusan} ',
                               style: const TextStyle(
                                 fontSize: 14,
+                                color: Colors.grey
                               ),
                             ),
                             Text(
                               user.angkatan.toString(),
                               style: const TextStyle(
                                 fontSize: 14,
+                                color: Colors.grey,
                               ),
                             ),
                           ],
@@ -88,10 +92,10 @@ class _MainPageAppBarState extends State<MainPageAppBar>{
           ),
           IconButton(
             onPressed: () {
-              // Navigator.push(
-              //   context,
-              //   MaterialPageRoute(builder: (context) => const CartPage()),
-              // );
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const FavoritePage()),
+              );
             },
             icon: const Icon(
               Icons.favorite,

@@ -9,4 +9,5 @@ abstract class FetchData {
   Future<List<MovieModel>> getTopRated();
   Future<List<MovieModel>> getLatest();
   Future<List<CastModel>> getCast(String id);
+  Future<MovieModel> getMovie(String id);
 }

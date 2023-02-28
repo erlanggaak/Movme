@@ -24,7 +24,7 @@ class _MoviesTileState extends State<MoviesTile> {
       margin: const EdgeInsets.all(8.0),
       width: 150,
       child: InkWell(
-        onTap: (){
+        onTap: () {
           Navigator.push(
             context,
             MaterialPageRoute(builder: (context) =>

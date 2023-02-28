@@ -8,13 +8,14 @@ class UserPreferences {
 
   static const _keyUser = 'user';
   static const defaultUser = User(
-      imagePath: "",
-      name: "user",
-      jurusan: "Computer Science",
+      imagePath: '',
+      name: 'user',
+      jurusan: 'Computer Science',
       angkatan: 2021,
-      email: "-",
-      instagram: "-",
-      about: "-",
+      email: '-',
+      instagram: '-',
+      hobi: '-',
+      about: '-',
   );
 
   static Future init() async =>

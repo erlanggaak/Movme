@@ -18,12 +18,14 @@ class _EditProfilePageState extends State<EditProfilePage> {
   int? _angkatan;
   String? _email;
   String? _instagram;
+  String? _hobi;
   String? _about;
   final _nameController = TextEditingController();
   final _jurusanController = TextEditingController();
   final _angkatanController = TextEditingController();
   final _emailController = TextEditingController();
   final _instagramController = TextEditingController();
+  final _hobiController = TextEditingController();
   final _aboutController = TextEditingController();
 
   @override
@@ -36,6 +38,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
     _angkatan = user.angkatan;
     _email = user.email;
     _instagram = user.instagram;
+    _hobi = user.hobi;
     _about = user.about;
 
     _nameController.text = _name!;
@@ -43,6 +46,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
     _angkatanController.text = _angkatan!.toString();
     _emailController.text = _email!;
     _instagramController.text = _instagram!;
+    _hobiController.text = _hobi!;
     _aboutController.text = _about!;
   }
 
@@ -264,6 +268,41 @@ class _EditProfilePageState extends State<EditProfilePage> {
                       Padding(
                         padding: const EdgeInsets.all(12),
                         child: TextFormField(
+                          controller: _hobiController,
+                          decoration: InputDecoration(
+                            hintText: "e.g ngoding",
+                            labelText: "Hobi",
+                            // Added a circular border to make it neater
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(5.0),
+                            ),
+                          ),
+                          // Added behavior when name is typed
+                          onChanged: (String? value) {
+                            setState(() {
+                              _hobi = value!;
+                              //user = user.copy(instagram: value);
+                            });
+                          },
+                          // Added behavior when data is saved
+                          onSaved: (String? value) {
+                            setState(() {
+                              _hobi = value!;
+                            });
+                          },
+                          // Validator as form validation
+                          validator: (String? value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Mohon isi hobimu!';
+                            }
+                            return null;
+                          },
+                        ),
+                      ),
+
+                      Padding(
+                        padding: const EdgeInsets.all(12),
+                        child: TextFormField(
                           controller: _aboutController,
                           keyboardType: TextInputType.multiline,
                           minLines: 1,
@@ -319,6 +358,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                                 angkatan: _angkatan,
                                 email: _email,
                                 instagram: _instagram,
+                                hobi: _hobi,
                                 about: _about,
                               );
                               UserPreferences.setUser(updatedUser);

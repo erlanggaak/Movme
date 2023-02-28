@@ -140,4 +140,19 @@ class FetchDataImpl extends FetchData {
     }
     return listCast;
   }
+
+  @override
+  Future<MovieModel> getMovie(String id) async {
+    var url = Uri.parse("${Constants.BASE_URL}/movie/${id}?api_key=${Constants.API_KEY}");
+    var response = await http.get(
+      url,
+      headers: {
+        "Content-Type": "application/json",
+      },
+    );
+    var data = jsonDecode(utf8.decode(response.bodyBytes));
+    MovieModel movie = MovieModel.fromJson(data);
+
+    return movie;
+  }
 }

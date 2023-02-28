@@ -66,7 +66,7 @@ class ProfileWidget extends StatelessWidget {
     color: Colors.white,
     all: 3,
     child: buildCircle(
-      color: Colors.grey,
+      color: Colors.deepPurple,
       all: 8,
       child: Icon(
         isEdit ? Icons.add_a_photo : Icons.edit,

@@ -12,7 +12,7 @@ class MovieModel extends MovieEntity {
   final DateTime releaseDate;
   final String originalLanguage;
   final String originalTitle;
-  final List<int> genreIds;
+  //final List<int> genreIds;
   final String backdropPath;
   final bool adult;
   final String overview;
@@ -29,7 +29,7 @@ class MovieModel extends MovieEntity {
     required this.releaseDate,
     required this.originalLanguage,
     required this.originalTitle,
-    required this.genreIds,
+    //required this.genreIds,
     required this.backdropPath,
     required this.adult,
     required this.overview,
@@ -57,7 +57,7 @@ class MovieModel extends MovieEntity {
       backdropPath: json['backdrop_path'],
       originalLanguage: json['original_language'],
       originalTitle: json['original_title'],
-      genreIds: json['genre_ids'].cast<int>(),
+      //genreIds: json['genre_ids'].cast<int>(),
       title: json['title'],
       voteAverage: json['vote_average']?.toDouble() ?? 0.0,
       overview: json['overview'],
@@ -76,7 +76,7 @@ class MovieModel extends MovieEntity {
     data['release_date'] = this.releaseDate;
     data['original_language'] = this.originalLanguage;
     data['original_title'] = this.originalTitle;
-    data['genre_ids'] = this.genreIds;
+    //data['genre_ids'] = this.genreIds;
     data['backdrop_path'] = this.backdropPath;
     data['adult'] = this.adult;
     data['overview'] = this.overview;
@@ -85,6 +85,19 @@ class MovieModel extends MovieEntity {
     data['media_type'] = this.mediaType;
     return data;
   }
+
+  // @override
+  // bool operator ==(Object other) {
+  //   if (this.id == (other as MovieModel).id){
+  //     return true;
+  //   }
+  //   return false;
+  // }
+  //
+  // @override
+  // // TODO: implement hashCode
+  // int get hashCode => id.hashCode;
+
 
   // void setCasts() async {
   //   List castList = await Client.fetch.getCast(id.toString());

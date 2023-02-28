@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:movme/page/_page.dart';
 
-class EditProfileAppBar extends StatefulWidget implements PreferredSizeWidget {
-  EditProfileAppBar({Key? key}) : preferredSize = Size.fromHeight(kToolbarHeight), super(key: key);
+class FavoriteAppBar extends StatefulWidget implements PreferredSizeWidget {
+  FavoriteAppBar({Key? key}) : preferredSize = Size.fromHeight(kToolbarHeight), super(key: key);
 
   @override
   final Size preferredSize; // default is 56.0
 
   @override
-  _EditProfileAppBarState createState() => _EditProfileAppBarState();
+  _FavoriteAppBarState createState() => _FavoriteAppBarState();
 }
 
-class _EditProfileAppBarState extends State<EditProfileAppBar>{
+class _FavoriteAppBarState extends State<FavoriteAppBar>{
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +35,7 @@ class _EditProfileAppBarState extends State<EditProfileAppBar>{
             ],
           ),
           const Text(
-            "Edit Profile",
+            "Favorite",
             style: TextStyle(
               fontSize: 20,
             ),
