@@ -21,7 +21,7 @@ class _FavoritePageState extends State<FavoritePage> {
         body: RefreshIndicator(
           onRefresh: _refresh,
           child: SingleChildScrollView(
-            physics: const BouncingScrollPhysics(),
+            physics: const BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: favoriteList.isEmpty

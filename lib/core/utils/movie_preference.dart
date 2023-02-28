@@ -10,7 +10,7 @@ class MoviePreference {
 
   static const _key = 'favorite';
   static var defaultList = FavoriteMovie(
-    listFavMovie: <MovieModel>[],
+    listFavMovie: [],
   );
 
   static Future init() async =>

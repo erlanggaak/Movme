@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:movme/core/utils/movie_preference.dart';
 import 'package:movme/core/widgets/movies_tile.dart';
