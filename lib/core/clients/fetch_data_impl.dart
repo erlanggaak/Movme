@@ -123,6 +123,29 @@ class FetchDataImpl extends FetchData {
   }
 
   @override
+  Future<List<MovieModel>> getSimilar(String id) async {
+    var url = Uri.parse("${Constants.BASE_URL}/movie/$id/similar?api_key=${Constants.API_KEY}");
+    var response = await http.get(
+      url,
+      headers: {
+        "Content-Type": "application/json",
+      },
+    );
+    var data = jsonDecode(utf8.decode(response.bodyBytes));
+    List<MovieModel> listMovies = [];
+    int counter = 0;
+    for (var d in data["results"]) {
+      print(d["release_date"]);
+      if (d != null) {
+        listMovies.add(MovieModel.fromJson(d));
+        counter++;
+      }
+      if (counter == 10) break;
+    }
+    return listMovies;
+  }
+
+  @override
   Future<List<CastModel>> getCast(String id) async {
     var url = Uri.parse("${Constants.BASE_URL}/movie/${id}/credits?api_key=${Constants.API_KEY}");
     var response = await http.get(

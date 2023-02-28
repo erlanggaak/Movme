@@ -13,10 +13,10 @@ class MovieModel extends MovieEntity {
   final String originalLanguage;
   final String originalTitle;
   //final List<int> genreIds;
-  final String backdropPath;
+  final String? backdropPath;
   final bool adult;
   final String overview;
-  final String posterPath;
+  final String? posterPath;
   final double popularity;
   String? mediaType;
 
@@ -30,10 +30,10 @@ class MovieModel extends MovieEntity {
     required this.originalLanguage,
     required this.originalTitle,
     //required this.genreIds,
-    required this.backdropPath,
+    this.backdropPath,
     required this.adult,
     required this.overview,
-    required this.posterPath,
+    this.posterPath,
     required this.popularity,
     this.mediaType,
   }) : super(
@@ -61,7 +61,7 @@ class MovieModel extends MovieEntity {
       title: json['title'],
       voteAverage: json['vote_average']?.toDouble() ?? 0.0,
       overview: json['overview'],
-      releaseDate: DateTime.parse(json['release_date']),
+      releaseDate: DateTime.parse(json['release_date'] == '' ? '0000-00-00' : json['release_date']),
       mediaType: json['media_type'],
     );
   }

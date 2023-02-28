@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:movme/core/utils/movie_preference.dart';
 import 'package:movme/core/widgets/movies_tile.dart';
+import 'package:movme/core/widgets/similar_section.dart';
 import 'package:movme/models/favorite_movie_cache_model.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:image_picker/image_picker.dart';

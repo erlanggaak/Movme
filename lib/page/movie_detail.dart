@@ -28,10 +28,12 @@ class _MovieDetailPage extends State<MovieDetailPage> {
             children: [
               Stack(
                 children: [
-                  Image.network(
-                    '${Constants.BASE_IMAGE_URL}/${widget.movie.backdropPath}',
-                    fit: BoxFit.fill,
-                  ),
+                  widget.movie.backdropPath == null
+                    ? Image.asset('lib/assets/static/images/placeholder.png')
+                    : Image.network(
+                      '${Constants.BASE_IMAGE_URL}/${widget.movie.backdropPath}',
+                      fit: BoxFit.fill,
+                    ),
                   Positioned(
                     top: 5,
                     left: 5,
@@ -65,7 +67,7 @@ class _MovieDetailPage extends State<MovieDetailPage> {
                 ],
               ),
               Padding(
-                padding: const EdgeInsets.only(left: 12, top: 12),
+                padding: const EdgeInsets.only(left: 14, top: 14),
                 child: Text(
                   widget.movie.title,
                   style: const TextStyle(
@@ -75,7 +77,7 @@ class _MovieDetailPage extends State<MovieDetailPage> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(left: 12, top: 4),
+                padding: const EdgeInsets.only(left: 14, top: 4),
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
@@ -122,7 +124,7 @@ class _MovieDetailPage extends State<MovieDetailPage> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.all(12.0),
+                padding: const EdgeInsets.only(top: 8.0, left: 14.0, right: 14.0, bottom: 12),
                 child: Text(
                   widget.movie.overview,
                   style: const TextStyle(
@@ -132,7 +134,7 @@ class _MovieDetailPage extends State<MovieDetailPage> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(left: 12, bottom: 4),
+                padding: const EdgeInsets.only(left: 14, bottom: 4),
                 child: Text(
                   "Cast: Awesome Person 1, Awesome Person 2, more...", //TODO: Cast
                   style: const TextStyle(
@@ -142,7 +144,23 @@ class _MovieDetailPage extends State<MovieDetailPage> {
                   textAlign: TextAlign.justify,
                 ),
               ),
-              // TODO: more like this
+              Container(
+                margin: EdgeInsets.only(top: 16, left: 18),
+                decoration: BoxDecoration(
+                  border: Border(
+                    bottom: BorderSide(width: 4.0, color: Colors.deepPurple),
+                  ),
+                ),
+                child: Text("More like this",
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18,
+                  ),),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Similar(movie: widget.movie,),
+              )
             ]
           ),
         ),

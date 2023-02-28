@@ -8,6 +8,7 @@ abstract class FetchData {
   Future<List<MovieModel>> getUpcoming();
   Future<List<MovieModel>> getTopRated();
   Future<List<MovieModel>> getLatest();
+  Future<List<MovieModel>> getSimilar(String id);
   Future<List<CastModel>> getCast(String id);
   Future<MovieModel> getMovie(String id);
 }
