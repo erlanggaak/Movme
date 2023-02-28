@@ -100,6 +100,7 @@ class _MainPageAppBarState extends State<MainPageAppBar>{
             icon: const Icon(
               Icons.favorite,
               size: 25,
+              color: Colors.pink,
             ),
           ),
         ],

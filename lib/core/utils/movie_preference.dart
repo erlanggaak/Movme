@@ -18,14 +18,12 @@ class MoviePreference {
 
   static Future setFavorite(FavoriteMovie favorite) async {
     final json = jsonEncode(favorite.toJson());
-    print(json);
 
     await _preferences.setString(_key, json);
   }
 
   static FavoriteMovie getFavorite() {
     final json = _preferences.getString(_key);
-    print(json);
 
     return json == null ? defaultList : FavoriteMovie.fromJson(jsonDecode(json));
   }

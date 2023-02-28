@@ -135,7 +135,6 @@ class FetchDataImpl extends FetchData {
     List<MovieModel> listMovies = [];
     int counter = 0;
     for (var d in data["results"]) {
-      print(d["release_date"]);
       if (d != null) {
         listMovies.add(MovieModel.fromJson(d));
         counter++;

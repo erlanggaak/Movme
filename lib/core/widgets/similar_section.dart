@@ -24,8 +24,6 @@ class _SimilarState extends State<Similar> {
       child: FutureBuilder(
         future: Client.fetch.getSimilar(widget.movie.id.toString()),
         builder: (context, AsyncSnapshot snapshot) {
-          print("=== SNAPSHOT ===");
-          print(snapshot);
           if (snapshot.data == null) {
             return const Center(child: CircularProgressIndicator());
           } else {
